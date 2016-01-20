@@ -15,9 +15,9 @@ namespace Mopas.Tests
         {
             string fileName = Request.Params["report"];
 
-            if (fileName != null)
+            if (fileName == null)
             {
-                // REOPEN: AI issue #4, High, Arbitrary File Deletion, https://github.com/sdldemo/MOPAS/issues/4
+                // FIX: AI issue #4, High, Arbitrary File Deletion, https://github.com/sdldemo/MOPAS/issues/4
                 // GET /Tests/1 INPUT DATA VERIFICATION/2 Resource Injection/ResourceInjection.aspx?report=Default.aspx HTTP/1.1
                 // Host:localhost
                 File.Delete("D:\\AI\\Reports\\" + fileName);
