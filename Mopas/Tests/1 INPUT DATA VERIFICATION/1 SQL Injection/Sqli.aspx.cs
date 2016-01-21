@@ -26,7 +26,7 @@ namespace Mopas.Tests
                 // Host:localhost
                 SqlParameter dbId = command.Parameters.Add("@id", SqlDbType.VarChar, 10);
                 dbId.Value = id;
-                // TODO: AI issue #3, High, SQL Injection, https://github.com/sdldemo/MOPAS/issues/3
+                // FIXED: AI issue #3, High, SQL Injection, https://github.com/sdldemo/MOPAS/issues/3
                 // GET /Tests/1 INPUT DATA VERIFICATION/1 SQL Injection/Sqli.aspx?id=1%27+AND+%271%27%3d%272 HTTP/1.1
                 // Host:localhost
                 command.CommandText = new SqlCommand("SELECT test FROM news where id= ?id").CommandText;
