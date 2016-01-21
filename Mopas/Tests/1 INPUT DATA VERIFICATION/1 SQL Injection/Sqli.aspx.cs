@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Data.SqlClient;
 
 namespace Mopas.Tests
@@ -21,7 +21,7 @@ namespace Mopas.Tests
             using (var connection = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
             using (var command = connection.CreateCommand())
             {
-                // FIXED: AI issue #3, High, SQL Injection, https://github.com/sdldemo/MOPAS/issues/3
+                // REOPEN: AI issue #3, High, SQL Injection, https://github.com/sdldemo/MOPAS/issues/3
                 // GET /Tests/1 INPUT DATA VERIFICATION/1 SQL Injection/Sqli.aspx?id=1%27+AND+%271%27%3d%272 HTTP/1.1
                 // Host:localhost
                 command.CommandText = "SELECT test FROM news where id=" + id;
